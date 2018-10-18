@@ -12,7 +12,13 @@ $('ul').on('click', 'span', function(event) {
 $("input[type='text']").keypress(function (e) { 
     if (e.which === 13) {
         let todoText = $(this).val();
-        $(this).val('');
-        $('ul').append(`<li><span>X</span> ${todoText}</li>`);
+        if (todoText !== '') {
+            $(this).val('');
+            $('ul').append(`<li><span><i class="fas fa-trash-alt"></i></span> ${todoText}</li>`);
+        }
     }
+});
+
+$("#toggle-form").click(function(){
+	$("input[type='text']").fadeToggle();
 });
